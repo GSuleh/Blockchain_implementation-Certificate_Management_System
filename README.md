@@ -41,5 +41,9 @@ An effective certification system is one in which certificates are widely accept
 
 
 # Characteristics of users (who is the end user of the system)
+Employeers looking to verify applicants' certificates.
+Recruitment organisations looking to verify applicants' certificates.
+Academic institutions (Faculty Admins) looking to issue certificates.
+Course porividers/Organizations looking to issue certificates.
 
 # Restrictions

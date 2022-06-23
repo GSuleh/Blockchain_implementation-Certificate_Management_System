@@ -26,9 +26,20 @@ An effective certification system is one in which certificates are widely accept
 **Standard Issue and Certification Processes**: This involves having an open, predictable and equitable method of issuing certificates. This especially applies in a scenario where a system has multiple issuers.
 
 **Accessibility**.
+
 **Security**.
 
 # Security requirements
 
+**Transparency and provenance**. Gives individuals the ability to access data on the origins of each certificate and its ownership. The system can indisputably prove that a particular certificate was issued at a particular point in time.
+
+**Self-sovereignty and Identity**.
+
+**Disintermediation**: This refers to replacing middlemen in transactions. Participants in the system can quickly prove ownership or authorship of certificates without the need of a central authority.
+
+**Immutability**: This refers to the fact that records on the Blockchain cannot be altered after they are created.
+
+
 # Characteristics of users (who is the end user of the system)
+
 # Restrictions

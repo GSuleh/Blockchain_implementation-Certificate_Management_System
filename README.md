@@ -56,3 +56,4 @@ Course porividers/Organizations looking to issue certificates.
 
 # Restrictions
 
+Performance: The need to cope with processing a large flow of transactions with the need to synchronize validators which takes time.

@@ -14,6 +14,11 @@ Blockchain is a trusted distributed ledger with shared business processes. It ha
 The objective of the system is to digitize the academic certificates of students/course participants who obtain academic qualifications any institution, in an immutable, non-repudiable and easily verifiable way to contribute to greater transparency and improve efficiency in the verification of academic certificates.
 
 # System content (system boundaries)
+These boundaries determine the scope of responsibility for all aspects of the system.
+
+1. **Issuing**: In this step the claim, issuer, evidence, recipient and signature are recorded onto a certificate. Additionally, this information can be stored in a centralized database of claims.
+2. **Verification**: A third party verifies the authenticity of the certificate. This includes verification of security features built into the certificate such as a digital signature with the original issuer or verification against a centralized database of claims hosted by a third party.
+3. **Sharing**: The certificate recipient shares the certificate with a third party.
 
 # Interaction (potential) of the product (with other products and components)
 Third party stake holders such as employers, recruitment organizations or academic institutions may leverage on the solution to store academic certificates on the blockchain and use the technology to verify said certificates.
@@ -41,7 +46,7 @@ An effective certification system is one in which certificates are widely accept
 
 
 # Characteristics of users (who is the end user of the system)
-Employeers looking to verify applicants' certificates.
+Employers looking to verify applicants' certificates.
 
 Recruitment organisations looking to verify applicants' certificates.
 
@@ -50,3 +55,4 @@ Academic institutions (Faculty Admins) looking to issue certificates.
 Course porividers/Organizations looking to issue certificates.
 
 # Restrictions
+

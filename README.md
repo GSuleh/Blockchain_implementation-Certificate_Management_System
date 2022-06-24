@@ -55,5 +55,8 @@ Academic institutions (Faculty Admins) looking to issue certificates.
 Course porividers/Organizations looking to issue certificates.
 
 ## Restrictions
+**Build**: The system is built using python. Some of those features of blockchain coding in Python include:
 
-Performance: The need to cope with processing a large flow of transactions with the need to synchronize validators which takes time.
+Blockchain programming in Python language is easy to learn, Access to dynamic architecture, Perfect for both base and scripting approaches, Open-source support, and Blockchain coding in python is efficient for prototyping, and Steem, Hyperledger Fabric, and NEO are a few popular Python–based Blockchain projects that are prevailing in the blockchain space.
+
+**Performance**: The need to cope with processing a large flow of transactions with the need to synchronize validators which takes time.

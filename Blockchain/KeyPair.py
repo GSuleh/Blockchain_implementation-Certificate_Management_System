@@ -29,8 +29,7 @@ class KeyPair:
         file_out.write(str(compress_point(self.public_key)).encode('utf-8'))
         file_out.close()
         
-        print("private key:", hex(self.private_key))
-        print("public key:", compress_point(self.public_key))
+        return hex(self.private_key), compress_point(self.public_key)
     
     def printKeyPair(self):
         self.private_key = open("private_key.pem", "rb")

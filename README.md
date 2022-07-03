@@ -54,7 +54,7 @@ Academic institutions (Faculty Admins) looking to issue certificates.
 
 Course porividers/Organizations looking to issue certificates.
 
-## Third Pary Libraries
+## Third Party Libraries
 https://cryptobook.nakov.com
 
 ## Restrictions

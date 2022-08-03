@@ -1,30 +1,33 @@
-# pip install pycoin
-
-from pycoin.ecdsa.secp256k1 import secp256k1_generator
-import hashlib, secrets
+from ecdsa import SigningKey, VerifyingKey, NIST192p
+from hashlib import sha256
+# NIST192p private key length is 24 bytes
 
 class digital_signature:
     msg: str
     public_key: str
     private_key: str
+    signature_hex_string: str
         
-    #computes and returns a SHA3-256 hash
-    def sha3_256Hash(msg):
-        hashBytes = hashlib.sha3_256(msg.encode("utf8")).digest()
-        return int.from_bytes(hashBytes, byteorder="big")
-    
-    #takes a text message and 256-bit secp256k1 private key and calculates the ECDSA signature {r, s}
-    #returns it as pair of 256-bit integers.
+                             
+    #returns it as str hex digitalsignature.
     def signData(self, msg, private_key):
         
-        msgHash = sha3_256Hash(msg)
-        signature = secp256k1_generator.sign(private_key, msgHash)
-        return signature
-    
-    #takes a text message, a ECDSA signature {r, s} and a 2*256-bit ECDSA public key (uncompressed)
+        msgHash = sha256(msg.encode('utf-8')).digest()
+        sk = SigningKey.from_string(bytearray.fromhex(private_key))
+        signature = sk.sign(msgHash)
+        self.signature_hex_string = str(signature.hex())
+        
+        file_out = open("digitalsignature.pem", "wb")
+        file_out.write(self.signature_hex_string.encode('utf-8'))
+        file_out.close()
+        
+        print ("Signature: ", signature) 
+        print ("Hex Signature: ", self.signature_hex_string)
+        
     #returns whether the signature is valid or not.
     def verifySignature(self, msg, signature, public_key):
-        
-        msgHash = sha3_256Hash(msg)
-        valid = secp256k1_generator.verify(public_key, msgHash, signature)
-        return valid 
+        msgHash = sha256(msg.encode('utf-8')).digest()
+        vk = VerifyingKey.from_string(bytearray.fromhex(public_key))
+        signature = bytearray.fromhex(signature)
+        print('Verify transmited data', vk.verify(signature, msgHash))
+

@@ -1,38 +1,33 @@
-pip install tineyec
+from ecdsa import SigningKey, VerifyingKey, NIST192p
 
-from tinyec import registry
-import secrets
+# NIST192p private key length is 24 bytes
+# Third party library https://pypi.org/project/ecdsa/
 
 
 class KeyPair:
-    private_key: str
-    public_key: str
+    private_key_sk: str
+    public_key_vk: str
 
-
-    #cryptographic elliptic curve over finite field, along with its generator point G.
+        
     def genKeyPair(self):
         
-        def compress_point(point):
-            return hex(point.x) + hex(point.y % 2)[2:]
-        
-        ecc_curve = registry.get_curve('secp256r1')
-        
-        #new random private key.
-        self.private_key = secrets.randbelow(ecc_curve.field.n)
+        #new random private key. Used for signing
+        self.private_key_sk = SigningKey.generate(curve=NIST192p)
         file_out = open("private_key.pem", "wb")
-        file_out.write(str(hex(self.private_key)).encode('utf-8'))
+        file_out.write(self.private_key_sk.to_string().hex().encode('utf-8'))
         file_out.close()
 
-        #private key * generator point G = public key.
-        self.public_key = self.private_key * ecc_curve.g
+        #public key. Used for verification
+        self.public_key_vk = self.private_key_sk.verifying_key.to_string().hex()
         file_out = open("public_key.pem", "wb")
-        file_out.write(str(compress_point(self.public_key)).encode('utf-8'))
+        file_out.write(str(self.public_key_vk).encode('utf-8'))
         file_out.close()
         
-        return hex(self.private_key), compress_point(self.public_key)
+        return self.private_key_sk.to_string().hex(), (self.public_key_vk)
     
     def printKeyPair(self):
         self.private_key = open("private_key.pem", "rb")
         self.public_key = open("public_key.pem", "rb")
         print(self.private_key.read())
         print(self.public_key.read())
+

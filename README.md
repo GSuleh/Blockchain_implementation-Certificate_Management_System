@@ -55,7 +55,7 @@ Academic institutions (Faculty Admins) looking to issue certificates.
 Course porividers/Organizations looking to issue certificates.
 
 ## Third Party Libraries
-https://cryptobook.nakov.com
+https://pypi.org/project/ecdsa/
 
 ## Restrictions
 **Build**: The system is built using python. Some of those features of blockchain coding in Python include:

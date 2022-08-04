@@ -2,7 +2,7 @@ from ecdsa import SigningKey, VerifyingKey, NIST192p
 from hashlib import sha256
 # NIST192p private key length is 24 bytes
 
-class digital_signature:
+class DigitalSignature:
     msg: str
     public_key: str
     private_key: str
@@ -21,8 +21,7 @@ class digital_signature:
         file_out.write(self.signature_hex_string.encode('utf-8'))
         file_out.close()
         
-        print ("Signature: ", signature) 
-        print ("Hex Signature: ", self.signature_hex_string)
+        return self.signature_hex_string
         
     #returns whether the signature is valid or not.
     def verifySignature(self, msg, signature, public_key):
@@ -30,4 +29,6 @@ class digital_signature:
         vk = VerifyingKey.from_string(bytearray.fromhex(public_key))
         signature = bytearray.fromhex(signature)
         print('Verify transmited data', vk.verify(signature, msgHash))
+
+
 

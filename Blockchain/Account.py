@@ -10,15 +10,15 @@ class Account:
         self.wallet = []
         self.balance = 0
         self.wallet.append(key_pair.genKeyPair())
-        self.accountID = self.wallet[0]
+        self.accountID = self.wallet[0][0]
         return self.wallet, self.accountID
 
     def addKeyPairToWallet(self):
         self.wallets.append(A.genKeyPair())
 
     def signData(self, msg, index):
-        Sign = Signature()
-        key = self.wallets[index][1]
+        Sign = DigitalSignature()
+        key = self.wallet[index][0]
         return Sign.signData(msg, key)
 
     def updateBalance(self, coins):
